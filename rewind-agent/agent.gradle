@@ -31,3 +31,7 @@ jar {
         attributes "Main-Class": project.mainClassName
     }
 }
+
+tasks.register("continousIntegration") {
+    dependsOn check
+}

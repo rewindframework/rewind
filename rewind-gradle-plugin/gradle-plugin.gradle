@@ -25,3 +25,7 @@ gradlePlugin {
         }
     }
 }
+
+tasks.register("continuousIntegration") {
+    dependsOn check
+}

@@ -9,3 +9,7 @@ dependencies {
 repositories {
     mavenCentral()
 }
+
+tasks.register("continuousIntegration") {
+    dependsOn check
+}
