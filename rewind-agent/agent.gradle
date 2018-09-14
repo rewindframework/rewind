@@ -1,0 +1,33 @@
+plugins {
+    id "java"
+    id "application"
+}
+
+version = "1.0-SNAPSHOT"
+
+mainClassName = "org.rewindframework.testing.AgentMain"
+run.args "--host", "localhost", "--queue", "hello", "--worker-dir", file('build/some-worker-dir')
+
+sourceCompatibility = "1.8"
+targetCompatibility = "1.8"
+
+dependencies {
+    implementation group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.11.0'
+    implementation group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.11.0'
+//    implementation group: 'org.apache.logging.log4j', name: 'log4j-jcl', version: '2.11.0'
+    implementation group: "com.rabbitmq", name: "amqp-client", version: "5.2.0"
+    implementation group: "commons-io", name: "commons-io", version: "2.6"
+    implementation group: "commons-cli", name: "commons-cli", version: "1.4"
+    implementation group: "org.apache.commons", name: "commons-lang3", version: "3.5"
+    implementation project(":rewind-core")
+}
+
+repositories {
+    mavenCentral()
+}
+
+jar {
+    manifest {
+        attributes "Main-Class": project.mainClassName
+    }
+}

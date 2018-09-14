@@ -1,0 +1,13 @@
+include 'rewind-gradle-plugin'
+include 'rewind-core'
+include 'rewind-agent'
+
+rootProject.name = "rewind"
+nameBuildScriptsAfterProjectNames(rootProject.children)
+
+def nameBuildScriptsAfterProjectNames(projects) {
+    for (prj in projects) {
+        prj.buildFileName = prj.name + ".gradle" - "rewind-"
+        nameBuildScriptsAfterProjectNames(prj.children)
+    }
+}
