@@ -10,7 +10,7 @@ Obviously, there are a set of technologies that work better together, and are a 
 
 ## Development
 
-### Where are those concept? I only see an opinionated implementation.
+### Where are those concepts? I only see an opinionated implementation.
 You are right.
 As much as I would love to dedicate my time at developing this framework further, it is been improved on a as needed basis.
 The concept are clear, they just need to be correctly layed out in an unopinionated way.
