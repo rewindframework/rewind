@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/rewindframework/rewind.svg?branch=master)](https://travis-ci.org/rewindframework/rewind)
+
 # Rewind
 
 > When replaying your tests isn't enough.
