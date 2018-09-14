@@ -1,2 +1,4 @@
 language: java
+services:
+    - rabbitmq
 script: ./gradlew continuousIntegration -s --continue
