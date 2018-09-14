@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.rewindframework.testing;
+package org.rewindframework.agent;
 
 import com.rabbitmq.client.*;
 import org.apache.logging.log4j.LogManager;

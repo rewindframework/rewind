@@ -14,11 +14,12 @@
  * limitations under the License.
  */
 
-package org.rewindframework.testing;
+package org.rewindframework.gradle;
 
 import org.gradle.api.DomainObjectCollection;
 import org.gradle.api.Project;
 import org.gradle.api.internal.DefaultDomainObjectCollection;
+import org.gradle.api.internal.collections.IterationOrderRetainingSetElementSource;
 
 import javax.inject.Inject;
 import java.util.ArrayList;
@@ -39,7 +40,7 @@ public class RewindFrameworkExtension {
     public static class TestCollection extends DefaultDomainObjectCollection<String> {
         @Inject
         public TestCollection() {
-            super(String.class, new ArrayList<>());
+            super(String.class, new IterationOrderRetainingSetElementSource<>());
         }
     }
 }

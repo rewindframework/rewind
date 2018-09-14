@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.rewindframework.testing;
+package org.rewindframework.agent;
 
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;

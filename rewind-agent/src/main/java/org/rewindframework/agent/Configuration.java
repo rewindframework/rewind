@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.rewindframework.testing;
+package org.rewindframework.agent;
 
 import org.apache.commons.cli.*;
 import org.apache.commons.lang3.StringUtils;

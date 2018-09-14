@@ -1,9 +1,9 @@
-package org.rewindframework.testing.plugins;
+package org.rewindframework.gradle.plugins;
 
 import com.github.jengelman.gradle.plugins.shadow.internal.DependencyFilter;
 import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar;
-import org.rewindframework.testing.RewindFrameworkExtension;
-import org.rewindframework.testing.tasks.RewindTest;
+import org.rewindframework.gradle.RewindFrameworkExtension;
+import org.rewindframework.gradle.tasks.RewindTest;
 import org.gradle.api.Plugin;
 import org.gradle.api.Project;
 import org.gradle.api.artifacts.Dependency;

@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-package org.rewindframework.testing;
+package org.rewindframework.agent;
 
 import com.rabbitmq.client.*;
-import org.rewindframework.testing.messages.TestingAbort;
-import org.rewindframework.testing.messages.TestingRequest;
+import org.rewindframework.messages.TestingAbort;
+import org.rewindframework.messages.TestingRequest;
 import org.apache.commons.lang3.SerializationUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

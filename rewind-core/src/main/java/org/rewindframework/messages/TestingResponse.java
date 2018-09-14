@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.rewindframework.testing.messages;
+package org.rewindframework.messages;
 
 import org.apache.commons.io.FileUtils;
 

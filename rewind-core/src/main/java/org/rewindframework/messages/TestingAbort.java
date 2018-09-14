@@ -14,11 +14,15 @@
  * limitations under the License.
  */
 
-package org.rewindframework.testing.messages;
+package org.rewindframework.messages;
 
 import java.io.Serializable;
 
-public class LogResponse implements Serializable {
-    public String message;
-    public String level;
+public class TestingAbort implements Serializable {
+    public String id;
+
+    public TestingAbort withId(String id) {
+        this.id = id;
+        return this;
+    }
 }

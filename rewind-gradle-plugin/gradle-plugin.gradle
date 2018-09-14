@@ -21,7 +21,7 @@ gradlePlugin {
     plugins {
         rewindBase {
             id = "org.rewindframework.base"
-            implementationClass = "io.boogie.testing.plugins.RewindBasePlugin"
+            implementationClass = "org.rewindframework.gradle.plugins.RewindBasePlugin"
         }
     }
 }

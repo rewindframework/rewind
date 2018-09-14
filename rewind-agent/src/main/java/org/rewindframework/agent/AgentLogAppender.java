@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package org.rewindframework.testing;
+package org.rewindframework.agent;
 
-import org.rewindframework.testing.messages.LogResponse;
+import org.rewindframework.messages.LogResponse;
 import org.apache.logging.log4j.core.Filter;
 import org.apache.logging.log4j.core.Layout;
 import org.apache.logging.log4j.core.LogEvent;

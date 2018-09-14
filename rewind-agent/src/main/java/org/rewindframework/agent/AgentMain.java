@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.rewindframework.testing;
+package org.rewindframework.agent;
 
 public class AgentMain {
     public static void main(String[] args) throws Exception {

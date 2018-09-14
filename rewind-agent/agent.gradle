@@ -32,6 +32,6 @@ jar {
     }
 }
 
-tasks.register("continousIntegration") {
+tasks.register("continuousIntegration") {
     dependsOn check
 }

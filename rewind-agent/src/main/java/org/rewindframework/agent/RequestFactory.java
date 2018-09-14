@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-package org.rewindframework.testing;
+package org.rewindframework.agent;
 
-import org.rewindframework.testing.messages.TestingRequest;
-import org.rewindframework.testing.messages.TestingResponse;
+import org.rewindframework.messages.TestingRequest;
+import org.rewindframework.messages.TestingResponse;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
 import org.apache.logging.log4j.LogManager;

@@ -1,10 +1,10 @@
-package org.rewindframework.testing.tasks;
+package org.rewindframework.gradle.tasks;
 
 import com.rabbitmq.client.*;
-import org.rewindframework.testing.messages.LogResponse;
-import org.rewindframework.testing.messages.TestingAbort;
-import org.rewindframework.testing.messages.TestingRequest;
-import org.rewindframework.testing.messages.TestingResponse;
+import org.rewindframework.messages.LogResponse;
+import org.rewindframework.messages.TestingAbort;
+import org.rewindframework.messages.TestingRequest;
+import org.rewindframework.messages.TestingResponse;
 import org.apache.commons.lang3.SerializationUtils;
 import org.apache.log4j.Level;
 import org.gradle.api.DefaultTask;
