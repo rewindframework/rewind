@@ -1,5 +1,9 @@
-apply plugin: 'java'
-apply plugin: "java-gradle-plugin"
+plugins {
+    id "com.gradle.plugin-publish" version "0.10.0"
+    id "java"
+    id "java-gradle-plugin"
+}
+
 
 version = "1.0-SNAPSHOT"
 
@@ -20,8 +24,22 @@ repositories {
 gradlePlugin {
     plugins {
         rewindBase {
-            id = "org.rewindframework.base"
+            id = "org.rewindframework.rewind-base"
             implementationClass = "org.rewindframework.gradle.plugins.RewindBasePlugin"
+        }
+    }
+}
+
+pluginBundle {
+    website = "https://rewindframework.org/"
+    vcsUrl = "https://github.com/rewindframework/rewind"
+    description = "Rewind base plugin"
+    tags = ["rewind", "end-to-end-testing"]
+
+    plugins {
+        rewindBase {
+            // id is captured from java-gradle-plugin configuration
+            displayName = "Rewind base plugin"
         }
     }
 }
