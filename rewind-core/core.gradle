@@ -10,6 +10,6 @@ repositories {
     mavenCentral()
 }
 
-tasks.register("continuousIntegration") {
+tasks.create("continuousIntegration") {
     dependsOn check
 }
