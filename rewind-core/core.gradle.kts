@@ -1,9 +1,9 @@
 plugins {
-    id "java-library"
+    `java-library`
 }
 
 dependencies {
-    api group: "commons-io", name: "commons-io", version: "2.6"
+    api("commons-io:commons-io:2.6")
 }
 
 repositories {
@@ -11,5 +11,5 @@ repositories {
 }
 
 tasks.create("continuousIntegration") {
-    dependsOn check
+    dependsOn(tasks.getByName("check"))
 }
