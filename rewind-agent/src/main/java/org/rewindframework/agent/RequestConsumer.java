@@ -48,7 +48,7 @@ public class RequestConsumer extends DefaultConsumer {
             // 1) Deserialize the message
             TestingRequest request = SerializationUtils.deserialize(body);
 
-            LOGGER.debug(String.format("Testing request deserialized: test JAR is %d bytes, id is '%s', repository count is %d, and dependency count is %d", request.payload.length, request.id, request.repositories.size(), request.dependencies.size());
+            LOGGER.debug(String.format("Testing request deserialized: test JAR is %d bytes, id is '%s', repository count is %d, and dependency count is %d", request.payload.length, request.id, request.repositories.size(), request.dependencies.size()));
 
             // Responder
             Responder responder = new Responder(request.id, connection);
