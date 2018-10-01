@@ -44,32 +44,37 @@ public class RequestConsumer extends DefaultConsumer {
     @Override
     public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
         LOGGER.debug(String.format("Delivery received with consumer tag '%s' and a payload of %d bytes", consumerTag, body.length));
-        // 1) Deserialize the message
-        TestingRequest request = SerializationUtils.deserialize(body);
-
-        // Responder
-        Responder responder = new Responder(request.id, connection);
-
-        // Connect the logger to this running test responder
         try {
-            AgentLogAppender.responder = responder;
+            // 1) Deserialize the message
+            TestingRequest request = SerializationUtils.deserialize(body);
 
-            LOGGER.info(String.format("Request '%s' received", request.id));
+            // Responder
+            Responder responder = new Responder(request.id, connection);
+
+            // Connect the logger to this running test responder
             try {
-                // Process request
-                RequestFactory.newRequest(request.id, responder).useWorkerDirectory(new File(workerDirectory, "rewind-test")).useCacheDirectory(new File(workerDirectory, "cache")).withTestProperties(testProperties).execute(request.payload, request.dependencies, request.repositories).publishResults();
+                AgentLogAppender.responder = responder;
 
-                LOGGER.debug("Delivery processed successfully");
-            } catch (InterruptedException e) {
-                LOGGER.error("Interrupt exception", e);
-            } catch (URISyntaxException e) {
-                LOGGER.error("URI syntax exception", e);
+                LOGGER.info(String.format("Request '%s' received", request.id));
+                try {
+                    // Process request
+                    RequestFactory.newRequest(request.id, responder).useWorkerDirectory(new File(workerDirectory, "rewind-test")).useCacheDirectory(new File(workerDirectory, "cache")).withTestProperties(testProperties).execute(request.payload, request.dependencies, request.repositories).publishResults();
+
+                    LOGGER.debug("Delivery processed successfully");
+                } catch (InterruptedException e) {
+                    LOGGER.error("Interrupt exception", e);
+                } catch (URISyntaxException e) {
+                    LOGGER.error("URI syntax exception", e);
+                }
+            } catch (Throwable e) {
+                responder.notify(new TestingAbort().withId(request.id));
+                throw e;
+            } finally {
+                AgentLogAppender.responder = null;
             }
         } catch (Throwable e) {
-            responder.notify(new TestingAbort().withId(request.id));
+            LOGGER.error("Exception during setting appender", e);
             throw e;
-        } finally {
-            AgentLogAppender.responder = null;
         }
     }
 }
