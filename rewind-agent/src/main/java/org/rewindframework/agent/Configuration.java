@@ -45,12 +45,14 @@ public class Configuration {
 
     public Map<String, String> getTestProperties() {
         Map<String, String> result = new HashMap<>();
-        for (String testProperty : commandLine.getOptionValues("testProperty")) {
-            String[] tokens = StringUtils.split(testProperty, '=');
-            assert tokens.length == 1;
-            String key = tokens[0];
-            String value = Arrays.stream(tokens).skip(1).reduce(String::concat).orElse(null);
-            result.put(key, value);
+        if (commandLine.hasOption("testProperty")) {
+            for (String testProperty : commandLine.getOptionValues("testProperty")) {
+                String[] tokens = StringUtils.split(testProperty, '=');
+                assert tokens.length == 1;
+                String key = tokens[0];
+                String value = Arrays.stream(tokens).skip(1).reduce(String::concat).orElse(null);
+                result.put(key, value);
+            }
         }
 
         return result;
