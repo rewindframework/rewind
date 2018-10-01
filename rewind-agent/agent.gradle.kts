@@ -5,7 +5,7 @@ plugins {
 version = "1.0-SNAPSHOT"
 
 application {
-    mainClassName = "org.rewindframework.testing.AgentMain"
+    mainClassName = "org.rewindframework.agent.AgentMain"
 }
 
 tasks.getByName<JavaExec>("run").args("--host", "localhost", "--queue", "hello", "--worker-dir", file("build/some-worker-dir"))
