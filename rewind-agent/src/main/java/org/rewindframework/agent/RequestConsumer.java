@@ -43,7 +43,9 @@ public class RequestConsumer extends DefaultConsumer {
 
     @Override
     public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
+        LOGGER.debug("Before log");
         LOGGER.debug(String.format("Delivery received with consumer tag '%s' and a payload of %d bytes", consumerTag, body.length));
+        LOGGER.debug("After log");
         try {
             LOGGER.debug("Before serialization");
             // 1) Deserialize the message

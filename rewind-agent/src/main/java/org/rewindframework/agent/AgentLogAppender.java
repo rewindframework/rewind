@@ -43,11 +43,15 @@ public class AgentLogAppender extends AbstractAppender {
 
     @Override
     public void append(LogEvent event) {
-        if (responder != null) {
-            LogResponse response = new LogResponse();
-            response.message = event.getMessage().getFormattedMessage();
-            response.level = event.getLevel().name();
-            responder.notify(response);
+        try {
+            if (responder != null) {
+                LogResponse response = new LogResponse();
+                response.message = event.getMessage().getFormattedMessage();
+                response.level = event.getLevel().name();
+                responder.notify(response);
+            }
+        } catch (Throwable e) {
+            e.printStackTrace();
         }
     }
 
